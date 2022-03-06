@@ -1,0 +1,36 @@
+﻿@model ModularisWebInterface.Models.TestModel
+<div class="text-center">
+    <h1 class="display-4">This is the bot display?</h1>
+    <p>ASDS</p>
+    <div class="col-12">
+        <form method="post">
+            @if (Model.BotName == null)
+            {
+                <p>NULL BRUH</p>
+            }
+
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        <label asp-for="BotName"></label>
+                    </th>
+                </tr>
+
+                @foreach (var bot in Model.BotList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => m.BotName)
+                        </td>
+                        @*<td>
+                            <button asp-page-handler="Deletekekw" asp-route-id="@book.Id" onclick="return confirm('Are you sure m8?')" class="btn btn-danger btn-sm text-white">Delete</button>
+                            <a asp-page="Upsert" asp-route-id="@book.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                        </td>*@
+                    </tr>
+                }
+
+            </table>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+version: '3'
+services: 
+  mhub:
+    build: .
+    ports:
+    - "8000:80"
+    - "8001:443"
+    environment:
+      ASPNETCORE_URLS: "https://+;http://+"
+      ASPNETCORE_HTTPS_PORT: "8001"
+      ASPNETCORE_ENVIRONMENT: Development
+    volumes:
+      # - /etc/ssl/certs:/root/.microsoft/usersecrets
+      # - /home/fosnas:/root/.aspnet/https/ 
+      # - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
+      # - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/ 
+      - F:\tmp:/root/.microsoft/usersecrets
+      - F:\tmp:/root/.aspnet/https/ 
