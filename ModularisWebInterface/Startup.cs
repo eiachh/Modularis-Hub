@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ModularisWebInterface.Models;
 
 namespace ModularisWebInterface
 {
@@ -27,6 +28,8 @@ namespace ModularisWebInterface
         {
             services.AddSignalR();
             services.AddControllersWithViews();
+
+            services.AddSingleton<IModuleManager, ModuleManager>();
 
             services.AddResponseCompression(opts =>
             {

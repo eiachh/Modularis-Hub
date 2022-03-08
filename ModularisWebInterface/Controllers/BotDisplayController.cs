@@ -34,10 +34,10 @@ namespace ModularisWebInterface.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            return Json(new { data = 2 });
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetAll()
+        //{
+        //    return Json(new { data = 2 });
+        //}
     }
 }
