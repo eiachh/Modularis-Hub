@@ -1,0 +1,60 @@
+﻿@using ModularisWebInterface.Models.Database
+@model ModularisWebInterface.Models.UserManagement.Confirmation.UserConfirmationModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="text-center">
+    <h1 class="display-4">User confirmation</h1>
+    <div class="col-12">
+        <form method="post">
+            @if (Model.UserConfirmations == null || Model.UserConfirmations.Count() == 0)
+            {
+                <p>There are no users registered!</p>
+                return;
+            }
+
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        <label asp-for=@Model.UserConfirmations.First().Id></label>
+                    </th>
+                    <th>
+                        <label asp-for=@Model.UserConfirmations.First().UserName></label>
+                    </th>
+                    <th>
+                        <label asp-for=@Model.UserConfirmations.First().IsActivated></label>
+                    </th>
+                    <th>
+                        <label>Action</label>
+                    </th>
+                </tr>
+
+                @foreach (var userConfirmation in Model.UserConfirmations)
+                {
+                    <tr>
+                        <td>
+                            @userConfirmation.Id
+                        </td>
+                        <td>
+                            @userConfirmation.UserName
+                        </td>
+                        <td>
+                            @userConfirmation.IsActivated
+                        </td>
+                        <td>
+                            @if (userConfirmation.IsActivated)
+                            {
+                                <button asp-action="DeactivateUser" asp-controller="UserManagement" asp-route-id="@userConfirmation.Id" class="btn btn-primary btn-sm text-white">De-Activate</button>
+                            }
+                            else
+                            {
+                                <button asp-action="ActivateUser" asp-controller="UserManagement" asp-route-id="@userConfirmation.Id" class="btn btn-primary btn-sm text-white">Activate</button>
+                            }
+                            <button asp-page-handler="DeleteUser" asp-route-id="@userConfirmation.Id" onclick="return confirm('Are you sure that you want to activate this user?')" class="btn btn-danger btn-sm text-white">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </form>
+    </div>
+</div>

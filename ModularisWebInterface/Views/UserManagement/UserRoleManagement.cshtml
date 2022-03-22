@@ -1,0 +1,57 @@
+﻿@using ModularisWebInterface.Models.Database
+@model ModularisWebInterface.Models.UserManagement.RoleManagement.UserRoleManagementModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="text-center">
+    <h1 class="display-4">User confirmation</h1>
+    <div class="col-12">
+        @if (Model.UserConfirmations == null || Model.UserConfirmations.Count() == 0)
+        {
+            <p>There are no users registered!</p>
+            return;
+        }
+
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>
+                    <label asp-for=@Model.UserConfirmations.First().Id></label>
+                </th>
+                <th>
+                    <label asp-for=@Model.UserConfirmations.First().UserName></label>
+                </th>
+                <th>
+                    <label asp-for=@Model.UserConfirmations.First().Role></label>
+                </th>
+                <th>
+                    <label>Action</label>
+                </th>
+            </tr>
+
+            @foreach (var userConfirmation in Model.UserConfirmations)
+            {
+                <form method="post"  asp-controller="UserManagement" asp-action="IDK">
+
+                <tr>
+                    <td>
+                        <input value="@userConfirmation.Id"  name="@nameof(userConfirmation.Id)" class="form-control-plaintext text-center" readonly="@(true)"/>
+                        
+                    </td>
+                    <td>
+                        <input value="@userConfirmation.UserName" name="@nameof(userConfirmation.UserName)"/>
+                            <p>@userConfirmation.UserName</p>
+                    </td>
+                    <td>
+                        @*@Model.UserConfirmations.FirstOrDefault().Role*@
+                        <input value="@userConfirmation.Role" name="@nameof(userConfirmation.Role)"/>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary btn-sm text-white">Edit</button>
+                    </td>
+                </tr>
+
+                </form>
+            }
+
+        </table>
+    </div>
+</div>

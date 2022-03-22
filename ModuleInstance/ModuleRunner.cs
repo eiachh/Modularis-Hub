@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http.Connections.Client;
 using Microsoft.AspNetCore.SignalR.Client;
 using ModularisInstanceCreator.Helper;
 using Newtonsoft.Json;
@@ -65,16 +66,21 @@ namespace ModularisInstanceCreator
                               (sender, certificate, chain, sslPolicyErrors) => true;
 
             HubConnection = new HubConnectionBuilder()
-                .WithUrl(usedServerUrl, (conf) => conf.HttpMessageHandlerFactory = (x) => new HttpClientHandler
+                .WithUrl(usedServerUrl, (conf) =>
                 {
-                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+                    conf.HttpMessageHandlerFactory = (x) => new HttpClientHandler
+                    {
+                        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+
+                    };
+                    conf.AccessTokenProvider = () => Task.FromResult("asdasdasd");
                 })
                 .Build();
         }
 
         private void RegisterDefaultFunctions()
         {
-            HubConnection.On<string>("SetDisplayModule", (DispModule) => Idk(DispModule));
+            HubConnection.On<string>("SetDisplayModule", (DispModule) => SetDisplayModule(DispModule));
         }
         private void RegisterGivenFunctions()
         {
@@ -89,7 +95,7 @@ namespace ModularisInstanceCreator
             await HubConnection.SendAsync("GetDefaultDisplayModule");
         }
 
-        private void Idk(string inp)
+        private void SetDisplayModule(string inp)
         {
             DisplayModule = inp;
         }
