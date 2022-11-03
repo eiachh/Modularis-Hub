@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectModularisBot", "ProjectModularis\ProjectModularisBot.csproj", "{6A735CC1-FBC6-4A35-906A-72620627F1E1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularisWebInterface", "ModularisWebInterface\ModularisWebInterface.csproj", "{54E3E5BB-E617-42BF-9C7A-D98498917A92}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularisInstanceCreator", "ModuleInstance\ModularisInstanceCreator.csproj", "{6E5E91E4-246F-4D6B-A587-C569A34316FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectModularisBot", "ProjectModularisBot\ProjectModularisBot.csproj", "{866FEB15-E66F-4AB8-8EDC-A3B71D412957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A735CC1-FBC6-4A35-906A-72620627F1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A735CC1-FBC6-4A35-906A-72620627F1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A735CC1-FBC6-4A35-906A-72620627F1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A735CC1-FBC6-4A35-906A-72620627F1E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54E3E5BB-E617-42BF-9C7A-D98498917A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54E3E5BB-E617-42BF-9C7A-D98498917A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54E3E5BB-E617-42BF-9C7A-D98498917A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{6E5E91E4-246F-4D6B-A587-C569A34316FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E5E91E4-246F-4D6B-A587-C569A34316FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E5E91E4-246F-4D6B-A587-C569A34316FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866FEB15-E66F-4AB8-8EDC-A3B71D412957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866FEB15-E66F-4AB8-8EDC-A3B71D412957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866FEB15-E66F-4AB8-8EDC-A3B71D412957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866FEB15-E66F-4AB8-8EDC-A3B71D412957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
