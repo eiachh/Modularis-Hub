@@ -5,7 +5,7 @@ using ModularisWebInterface.Models.Database;
 
 namespace ModularisWebInterface.Models.UserManagement.Confirmation
 {
-    public class ManualConfirmation : IUserConfirmation<IdentityUser>
+    /*public class ManualConfirmation : IUserConfirmation<IdentityUser>
     {
         private AppDbContext _db;
         public ManualConfirmation(AppDbContext db)
@@ -30,5 +30,5 @@ namespace ModularisWebInterface.Models.UserManagement.Confirmation
             _db.UserConfirmation.Add(new UserConfirmation { Id = user.Id, IsConfirmedManually = false });
             _db.SaveChanges();
         }
-    }
+    }*/
 }

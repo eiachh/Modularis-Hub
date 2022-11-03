@@ -10,8 +10,8 @@ using ModularisWebInterface.Models.Database;
 
 namespace ModularisWebInterface.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    //[DbContext(typeof(AppDbContext))]
+    /*partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -298,5 +298,5 @@ namespace ModularisWebInterface.Migrations
                 });
 #pragma warning restore 612, 618
         }
-    }
+    }*/
 }

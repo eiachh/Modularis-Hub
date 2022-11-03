@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ModularisWebInterface.Models.Database
 {
-    public class AppDbContext : IdentityDbContext
+    /*public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -12,5 +12,5 @@ namespace ModularisWebInterface.Models.Database
         }
         public DbSet<UserConfirmation> UserConfirmation { get; set; }
         public DbSet<ModularisUserClaims> ModularisUserClaims { get; set; }
-    }
+    }*/
 }

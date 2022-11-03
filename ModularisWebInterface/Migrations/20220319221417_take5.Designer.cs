@@ -11,7 +11,7 @@ using ModularisWebInterface.Models.Database;
 
 namespace ModularisWebInterface.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    //[DbContext(typeof(AppDbContext))]
     [Migration("20220319221417_take5")]
     partial class take5
     {

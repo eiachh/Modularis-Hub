@@ -43,15 +43,15 @@ namespace ModularisWebInterface
             if (WebHostEnvironment.IsDevelopment())
                 Configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IUserConfirmation<IdentityUser>, ManualConfirmation>();
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddScoped<IUserConfirmation<IdentityUser>, ManualConfirmation>();
 
             services.AddAuthentication("OAuth")
                 .AddJwtBearer("OAuth", config =>
                 {
 
                 });
-            services.AddIdentity<IdentityUser, IdentityRole>(config =>
+            /*services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {
                 if (WebHostEnvironment.IsDevelopment())
                 {
@@ -68,8 +68,8 @@ namespace ModularisWebInterface
                 config.Password.RequireNonAlphanumeric = false;
                 config.SignIn.RequireConfirmedAccount = true;
             })
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+                //.AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();*/
 
             services.ConfigureApplicationCookie(config =>
             {
@@ -96,7 +96,9 @@ namespace ModularisWebInterface
             services.AddSingleton<IModuleManager, ModuleManager>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IAuthorizationHandler, CustomRequireClaimHandler>();
-            services.AddScoped<UserHelper>();
+            //services.AddScoped<UserHelper>();
+
+            services.AddSingleton<MainHub, MainHub>();
 
             services.AddResponseCompression(opts =>
             {

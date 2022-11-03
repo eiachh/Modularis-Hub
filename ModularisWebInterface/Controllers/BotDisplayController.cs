@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ModularisWebInterface.Controllers
 {
-    public class BotDisplayController : Controller
+    /*public class BotDisplayController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -39,5 +39,5 @@ namespace ModularisWebInterface.Controllers
         //{
         //    return Json(new { data = 2 });
         //}
-    }
+    }*/
 }

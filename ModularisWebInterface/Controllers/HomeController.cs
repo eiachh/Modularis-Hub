@@ -12,29 +12,34 @@ using System.Threading.Tasks;
 using System.Linq;
 
 namespace ModularisWebInterface.Controllers
-{
+{/*
     public class HomeController : Controller
     {
+        
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<IdentityUser> _userManager;
+        //private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly AppDbContext _db;
+        //private readonly AppDbContext _db;
+
+        private readonly MainHub _mainHub;
 
         public HomeController(ILogger<HomeController> logger,
-             UserManager<IdentityUser> userManager,
+             //UserManager<IdentityUser> userManager,
              SignInManager<IdentityUser> signInManager,
-             AppDbContext db)
+             //AppDbContext db,
+             MainHub hub)
         {
             _logger = logger;
-            _userManager = userManager;
+           // _userManager = userManager;
             _signInManager = signInManager;
-            _db = db;
+            //_db = db;
+            _mainHub = hub;
         }
 
         public async Task<IActionResult> Index()
         {
             
-             var usr = await _userManager.GetUserAsync(HttpContext.User);
+             //var usr = await _userManager.GetUserAsync(HttpContext.User);
             //var token = await _userManager.GenerateUserTokenAsync(usr, "me", "purpose?");
             return View();
         }
@@ -88,14 +93,16 @@ namespace ModularisWebInterface.Controllers
 
             if (result.Succeeded)
             {
-                _db.UserConfirmation.Add(new UserConfirmation(user.Id));
-                _db.SaveChanges();
+                //_db.UserConfirmation.Add(new UserConfirmation(user.Id));
+                //_db.SaveChanges();
 
                 return RedirectToAction("Login");
             }
 
             return RedirectToAction("Index");
         }
+
+        
 
         public async Task<IActionResult> Logout()
         {
@@ -108,5 +115,5 @@ namespace ModularisWebInterface.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
+    }*/
 }

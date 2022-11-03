@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace ModularisWebInterface.Controllers
 {
-    [Authorize(Policy = "UserManagement")]
+    /*[Authorize(Policy = "UserManagement")]
     public class UserManagementController : Controller
     {
-        private readonly AppDbContext _db;
+        //private readonly AppDbContext _db;
         public UserManagementController(AppDbContext db)
         {
-            _db = db;
+            //_db = db;
         }
 
         public IActionResult Index()
@@ -24,11 +24,12 @@ namespace ModularisWebInterface.Controllers
         }
         public async Task<IActionResult> UserListDisplay()
         {
-            UsersModel users = new() { Users = await _db.Users.ToListAsync() };
-            return View(users);
+            //UsersModel users = new() { Users = await _db.Users.ToListAsync() };
+            return Json("");
+            //return View(users);
         }
 
-        public async Task<IActionResult> EditUser(string id, [FromServices] UserHelper userHelper)
+        /*public async Task<IActionResult> EditUser(string id, [FromServices] UserHelper userHelper)
         {
             var model = await userHelper.GetSingleUserModelFor(id);
 
@@ -42,9 +43,9 @@ namespace ModularisWebInterface.Controllers
         {
             await userHelper.DeleteUser(id);
             return RedirectToAction("UserListDisplay");
-        }
+        }*/
 
-        public async Task<IActionResult> ModifyUser(SingleUserModel modifiedUser, [FromServices] UserHelper userHelper)
+        /*public async Task<IActionResult> ModifyUser(SingleUserModel modifiedUser, [FromServices] UserHelper userHelper)
         {
             var originalUser = await userHelper.GetSingleUserModelFor(modifiedUser.Id);
 
@@ -63,5 +64,5 @@ namespace ModularisWebInterface.Controllers
 
             return RedirectToAction("UserListDisplay");
         }
-    }
+    }*/
 }

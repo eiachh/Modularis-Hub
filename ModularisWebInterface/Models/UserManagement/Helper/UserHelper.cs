@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ModularisWebInterface.Models.UserManagement.Helper
 {
-    public class UserHelper
+    /*public class UserHelper
     {
         private readonly AppDbContext _db;
         private readonly UserManager<IdentityUser> _userManager;
@@ -111,5 +111,5 @@ namespace ModularisWebInterface.Models.UserManagement.Helper
         {
             return _db.ModularisUserClaims.AsEnumerable().DistinctBy(x => x.ClaimType).Select(elem => elem.ClaimType);
         }
-    }
+    }*/
 }
