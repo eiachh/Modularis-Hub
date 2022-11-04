@@ -35,6 +35,7 @@ WORKDIR /app/ProjectModularisBot
 COPY --from=build /app/ProjectModularisBot ./
 
 WORKDIR /app/ModularisWebInterface
+RUN dotnet dev-certs https
 ENTRYPOINT ["dotnet", "ModularisWebInterface.dll"]
 
 
