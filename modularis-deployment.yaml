@@ -35,4 +35,4 @@ spec:
         volumeMounts:
         - name: idfk
           readOnly: true
-          mountPath: "/app/ProjectModularisBot"
+          mountPath: "/app/ProjectModularisBot/config"
