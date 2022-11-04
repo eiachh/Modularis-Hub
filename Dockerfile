@@ -5,19 +5,36 @@ WORKDIR /source
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY ModularisWebInterface/*.csproj ./ModularisWebInterface/
+COPY ModuleInstance/*.csproj ./ModuleInstance/
+COPY ProjectModularisBot/*.csproj ./ProjectModularisBot/
+
+RUN dotnet restore ./ModuleInstance
 RUN dotnet restore ./ModularisWebInterface
+RUN dotnet restore ./ProjectModularisBot
 
 # copy everything else and build app
+COPY ModuleInstance/. ./ModuleInstance/
 COPY ModularisWebInterface/. ./ModularisWebInterface/
+COPY ProjectModularisBot/. ./ProjectModularisBot/
+
 WORKDIR /source/ModularisWebInterface
 RUN dotnet build
+RUN dotnet publish -c release -o /app/ModularisWebInterface --no-restore
 
-RUN dotnet publish -c release -o /app --no-restore
+WORKDIR /source/ProjectModularisBot
+RUN dotnet build
+RUN dotnet publish -c release -o /app/ProjectModularisBot --no-restore
+
 
 #final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
-WORKDIR /app
-COPY --from=build /app ./
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app/ModularisWebInterface
+COPY --from=build /app/ModularisWebInterface ./
+
+WORKDIR /app/ProjectModularisBot
+COPY --from=build /app/ProjectModularisBot ./
+
+WORKDIR /app/ModularisWebInterface
 ENTRYPOINT ["dotnet", "ModularisWebInterface.dll"]
 
 

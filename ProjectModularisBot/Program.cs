@@ -17,6 +17,7 @@ namespace ProjectModularis
         private static Bot bot;
         public static void Main()
         {
+            Console.WriteLine("Main Started");
             StartBot();
             while (!Stop)
             {
@@ -26,9 +27,11 @@ namespace ProjectModularis
 
         public static void StartBot()
         {
+            Console.WriteLine("Creating bot");
             bot = new Bot();
             bot.Started += async (s, e) => await TheBot_Started();
             _ = bot.RunAsync();
+            Console.WriteLine("Bot Created");
         }
 
         private static async Task TheBot_Started()
