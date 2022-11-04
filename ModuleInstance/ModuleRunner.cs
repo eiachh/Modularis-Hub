@@ -30,7 +30,7 @@ namespace ModularisInstanceCreator
             }
         }
         public string ReleaseServerUrl { get; set; } = "https://modularis.duckdns.org:8001/mainhub";
-        public string LocalServerUrl { get; set; } = "https://localhost:5001/mainhub";
+        public string LocalServerUrl { get; set; } = "http://localhost:5000/mainhub";
 
         public event EventHandler DisplayModuleChanged;
 
