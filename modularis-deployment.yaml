@@ -19,11 +19,11 @@ spec:
       labels:
         io.kompose.service: modularis
     spec:
-    volumes:
-    - name: idktbh
+      volumes:
+      - name: idfk
         secret:
-        secretName: discord-token
-    containers:
+          secretName: discord-token
+      containers:
       - name: modularis
         image: eiachh/modularis
         imagePullPolicy: "Never"
@@ -31,8 +31,8 @@ spec:
         - name: "PYTHONUNBUFFERED"
           value: "1"
         ports:
-        - containerPort: 4998
+        - containerPort: 5003
         volumeMounts:
-        - name: "discord-token2"
+        - name: idfk
           readOnly: true
           mountPath: "/app/ProjectModularisBot"

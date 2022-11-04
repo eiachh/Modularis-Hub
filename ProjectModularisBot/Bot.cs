@@ -27,7 +27,7 @@ namespace DiscordBotTutorial.Bots
         {
             var json = string.Empty;
 
-            if (!File.Exists("config.json"))
+            if (!File.Exists("config/config.json"))
             {
                 Console.WriteLine("Config.json is not present.. shutting down");
                 Environment.Exit(0);
