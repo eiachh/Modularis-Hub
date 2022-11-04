@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modularis
+  labels:
+    io.kompose.service: modularis
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxSurge: 2
+        maxUnavailable: 0
+  selector:
+    matchLabels:
+      io.kompose.service: modularis
+  template:
+    metadata:
+      labels:
+        io.kompose.service: modularis
+    spec:
+      containers:
+      - name: modularis
+        image: eiachh/modularis
+        imagePullPolicy: "Never"
+        env:
+        - name: "PYTHONUNBUFFERED"
+          value: "1"
+        ports:
+        - containerPort: 4998
+        volumeMounts:
+        - name: "discord-token"
+          readOnly: true
+          mountPath: "/app/ProjectModularisBot"

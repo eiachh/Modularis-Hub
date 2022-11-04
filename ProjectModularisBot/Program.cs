@@ -36,16 +36,26 @@ namespace ProjectModularis
 
         private static async Task TheBot_Started()
         {
-            DiscordChannel botChannel = await GetBotChannel();
-            IModuleRunner moduleRunner = GetModuleRunner(botChannel);
+            try
+            {
+                Console.WriteLine("Connecting to modularis hub");
+                DiscordChannel botChannel = await GetBotChannel();
+                IModuleRunner moduleRunner = GetModuleRunner(botChannel);
 
-            await moduleRunner.Run();
+                await moduleRunner.Run();
 
-            Bot.HubConnection = moduleRunner.HubConnection;
-            //MOCK
-            await moduleRunner.HubConnection.SendAsync("GetModuleNames");
+                Bot.HubConnection = moduleRunner.HubConnection;
+                //MOCK
+                await moduleRunner.HubConnection.SendAsync("GetModuleNames");
 
-            await Task.Delay(-1);
+                await Task.Delay(-1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error during moduleRunner.HubConnection "+ e.Message + e.InnerException.Message +"... shutting down");
+                Environment.Exit(1);
+            }
+            
         }
 
         private static IModuleRunner GetModuleRunner(DiscordChannel botChannel)
@@ -85,7 +95,7 @@ namespace ProjectModularis
         {
             int timeoutCounter = 5;
 
-            var guild = bot.Client.Guilds.FirstOrDefault();
+            var guild = bot.DiscordClient.Guilds.FirstOrDefault();
             var botChannel = guild.Value.Channels.SingleOrDefault(channelDict => channelDict.Key == 947971806617272390).Value;
             while (botChannel is null && timeoutCounter >= 0)
             {
