@@ -33,7 +33,7 @@ namespace DiscordBotTutorial.Bots
                 Environment.Exit(0);
             }
 
-            using (var fs = File.OpenRead("config.json"))
+            using (var fs = File.OpenRead("config/config.json"))
             using (var sr = new StreamReader(fs, new UTF8Encoding(false)))
                 json = sr.ReadToEnd();
 
