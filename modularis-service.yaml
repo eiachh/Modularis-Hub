@@ -10,12 +10,9 @@ metadata:
   name: modularis
 spec:
   ports:
-  - name: "https4998"
-    port: 4998
-    targetPort: 4998
-  - name: "http4997"
-    port: 4997
-    targetPort: 4997
+  - name: "http5000"
+    port: 5000
+    targetPort: 5000
   selector:
     io.kompose.service:  modularis
 status:
