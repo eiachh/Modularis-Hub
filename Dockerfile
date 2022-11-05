@@ -28,15 +28,19 @@ RUN dotnet publish -c release -o /app/ProjectModularisBot --no-restore
 
 #final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
+RUN apt-get update
+RUN apt-get install curl
+
+COPY ./modularisStart.sh ./app
+
 WORKDIR /app/ModularisWebInterface
 COPY --from=build /app/ModularisWebInterface ./
 
 WORKDIR /app/ProjectModularisBot
 COPY --from=build /app/ProjectModularisBot ./
 
-WORKDIR /app/ModularisWebInterface
-RUN dotnet dev-certs https
-ENTRYPOINT ["dotnet", "ModularisWebInterface.dll"]
+WORKDIR /app
+ENTRYPOINT ["bash", "./modularisStart.sh"]
 
 
 

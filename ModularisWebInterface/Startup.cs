@@ -100,6 +100,8 @@ namespace ModularisWebInterface
 
             services.AddSingleton<MainHub, MainHub>();
 
+            services.AddHealthChecks();
+
             services.AddResponseCompression(opts =>
             {
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
@@ -127,7 +129,7 @@ namespace ModularisWebInterface
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -140,6 +142,7 @@ namespace ModularisWebInterface
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<MainHub>("/mainhub");
+                endpoints.MapHealthChecks("/healthy");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
