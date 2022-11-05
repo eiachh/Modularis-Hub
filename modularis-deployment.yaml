@@ -28,8 +28,8 @@ spec:
         image: eiachh/modularis
         imagePullPolicy: "Never"
         env:
-        - name: "PYTHONUNBUFFERED"
-          value: "1"
+        - name: "ASPNETCORE_URLS"
+          value: "http://localhost:5000"
         ports:
         - containerPort: 5003
         volumeMounts:
