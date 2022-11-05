@@ -29,7 +29,7 @@ spec:
         imagePullPolicy: "Never"
         env:
         - name: "ASPNETCORE_URLS"
-          value: "http://localhost:5000"
+          value: "http://*:5000"
         ports:
         - containerPort: 5003
         volumeMounts:
