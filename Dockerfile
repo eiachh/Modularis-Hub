@@ -28,8 +28,8 @@ RUN dotnet publish -c release -o /app/ProjectModularisBot --no-restore
 
 #final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
-RUN apt-get update
-RUN apt-get install curl
+RUN apt-get update -y
+RUN apt-get install curl -y
 
 COPY ./modularisStart.sh ./app
 
