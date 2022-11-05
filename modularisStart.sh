@@ -3,6 +3,7 @@
 echo "Starting modularis main"
 dotnet /app/ModularisWebInterface/ModularisWebInterface.dll &
 
+sleep 20
 healthyResult=$(curl http://localhost:5000/healthy)
 echo $healthyResult
 while [[ $healthyResult != *"Healthy"* ]]; 
@@ -11,5 +12,5 @@ do
     dotnet /app/ProjectModularisBot/ProjectModularisBot.dll &
     healthyResult=$(curl http://localhost:5000/healthy)
     echo $healthyResult
-    sleep 1
+    sleep 5
 done
