@@ -41,9 +41,5 @@ WORKDIR /app/ProjectModularisBot
 COPY --from=build /app/ProjectModularisBot ./
 
 WORKDIR /app
-ENTRYPOINT ["bash", "./modularisStart.sh"]
-
-
-
-
 # CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
+ENTRYPOINT ["bash", "./modularisStart.sh"]
