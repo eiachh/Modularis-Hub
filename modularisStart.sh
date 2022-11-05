@@ -11,4 +11,5 @@ do
     dotnet /app/ProjectModularisBot/ProjectModularisBot.dll &
     healthyResult=$(curl http://localhost:5000/healthy)
     echo $healthyResult
+    sleep 1
 done
