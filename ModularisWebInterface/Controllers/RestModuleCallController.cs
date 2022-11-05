@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,6 +15,7 @@ namespace ModularisWebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult>TargetedCall()
         {
+            Console.WriteLine("TargetedCall received!");
             await _mainHub.TargetedCall("ModularisMainBot", "WriteToBotChannel", Request.HttpContext.Request.Form.FirstOrDefault().Key);
             return Json("OK");
         }
