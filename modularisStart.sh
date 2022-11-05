@@ -21,5 +21,5 @@ do
     sleep 5
 done
 echo "All ok starting bot"
-dotnet /app/ProjectModularisBot/ProjectModularisBot.dll > /dev/null &
+dotnet /app/ProjectModularisBot/ProjectModularisBot.dll
     
